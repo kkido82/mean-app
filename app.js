@@ -3,8 +3,19 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+mongoose.connect('mongodb://localhost:27017/mean-angular5', { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
+
 
 var book = require('./routes/book');
+
+
+
+
 var app = express();
 
 app.use(logger('dev'));
