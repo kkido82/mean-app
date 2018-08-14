@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var Book = require('../models/Book.js');
 
 /* GET ALL BOOKS */

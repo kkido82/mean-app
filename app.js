@@ -12,6 +12,7 @@ mongoose.connect('mongodb://localhost:27017/mean-angular5', { promiseLibrary: re
 
 
 var book = require('./routes/book');
+// var router = require('./routes');
 
 
 
@@ -23,7 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/books', express.static(path.join(__dirname, 'dist')));
-app.use('/book', book);
+app.use('/products', express.static(path.join(__dirname, 'dist')));
+app.use('/api/books', book);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,7 +42,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.render('error');
 });
 
 module.exports = app;
